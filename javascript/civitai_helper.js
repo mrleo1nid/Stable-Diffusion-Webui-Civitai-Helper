@@ -754,14 +754,14 @@ function processSingleCard(active_tab_type, active_extra_tab_type, card) {
 
     // search_term node
     // search_term = subfolder path + model name + ext
-    search_term_node = card.querySelector(".actions .additional .search_term");
+    search_term_node = card.querySelector(".actions .additional .search_terms");
     if (!search_term_node) {
         console.log("can not find search_term node for cards in " + active_tab_type + "_" + active_extra_tab_type + "_cards");
         return;
     }
 
     // get search_term
-    search_term = search_term_node.textContent.replace("'", "\\'");
+    search_term = search_term_node.textContent.split('\\').slice(1).join('\\').replaceAll("\\", "\\\\").replace("'", "\\'");
     if (!search_term) {
         console.log("search_term is empty for cards in " + active_tab_type + "_" + active_extra_tab_type + "_cards");
         return;
