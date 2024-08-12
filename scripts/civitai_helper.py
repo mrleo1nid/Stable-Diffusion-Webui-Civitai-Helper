@@ -15,7 +15,6 @@ from ch_lib import js_action_civitai
 from ch_lib import civitai
 from ch_lib import util
 from ch_lib import sections
-from browser import browser
 
 # init
 # root path
@@ -175,12 +174,10 @@ def on_ui_tabs():
             outputs=py_msg_txtbox
         )
 
-    civitai_helper_browser = browser.civitai_search()
 
     # the third parameter is the element id on html, with a "tab_" as prefix
     return (
         (civitai_helper, "Civitai Helper", "civitai_helper"),
-        (civitai_helper_browser, "Civitai Helper Browser", "civitai_helper_browser")
     )
 
 
